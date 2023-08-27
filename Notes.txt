@@ -1,0 +1,19 @@
+# Build
+cd <path to project>/php-apache-mysql
+docker-compose build
+
+# Launch Application
+docker-compose up
+
+
+# option to list ports
+docker-composer ps
+
+# option to delete build
+docker-composer down
+
+# Running a Bash shell on container startup
+docker run -it <image> bash
+
+# pulling a docker container
+docker pull ubuntu/apache2

@@ -1,0 +1,94 @@
+{
+  "gameId": "Tutorial",
+  "gameDescription": "Tutorial Scenario - When you feel you understand the platform, you can close this window",
+  "flockingEnabled": false,
+  "allocationMethod": "bestfirst",
+  "allocationStyle": "dynamic",
+  "modelStyle": "justOn",
+  "extendedUIOptions": {
+    "predictions": false,
+    "uncertainties": false,
+    "verification": true
+  },
+  "varianceParameters": {
+    "speedPerAgent": 0.5,
+    "batteryPerAgent": 0.0002
+  },
+  "noiseParameters": {
+    "speedPerSecond": 0.25,
+    "batteryPerStep": 0.0001
+  },
+  "verificationParameters": {
+    "isEnabled" : true,
+    "samples": 500,
+    "isDummy": false,
+    "delayTime": 15,
+    "delayBound": 5
+  },
+  "hub": {
+    "lat": 50.92893260355405,
+    "lng": -1.4088842718500894
+  },
+  "timeLimitSeconds": 120,
+  "uncertaintyRadius": 200.0,
+  "gameCentre": {
+    "lat": 50.929378522204615,
+    "lng": -1.4080147702592285
+  },
+  "agents": [
+    {
+      "lat": 50.929425463893395,
+      "lng": -1.4088101213508741
+    },
+    {
+      "lat": 50.92893858723503,
+      "lng": -1.4097971742683546
+    },
+    {
+      "lat": 50.92902649589759,
+      "lng": -1.4078767126136915
+    }
+  ],
+  "tasks": [
+    {
+      "lat": 50.93103606777789,
+      "lng": -1.407989060947389,
+      "type": 4
+    },
+    {
+      "lat": 50.931027477794345,
+      "lng": -1.409344139269709,
+      "type": 4
+    },
+    {
+      "lat": 50.93206137062308,
+      "lng": -1.4065229100344483,
+      "type": 4
+    },
+    {
+      "lat": 50.93199121086687,
+      "lng": -1.4084886562454084,
+      "type": 4
+    },
+    {
+      "lat": 50.93296700828706,
+      "lng": -1.4116729122584462,
+      "type": 4
+    },
+    {
+      "lat": 50.93291973366247,
+      "lng": -1.4092987778406456,
+      "type": 4
+    },
+    {
+      "lat": 50.93361255001502,
+      "lng": -1.405917890320473,
+      "type": 4
+    },
+    {
+      "lat": 50.93398941732481,
+      "lng": -1.4046919999180876,
+      "type": 4
+    }
+  ]
+}

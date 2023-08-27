@@ -1,0 +1,103 @@
+# docker-compose.yml
+version: "3.8"
+services:
+  apache:
+    container_name: apache
+    build: ./docker/apache
+    links:
+      - php
+    ports:
+      - "80:80"
+      - "44101:44101"
+    volumes:
+      - ./src:/usr/local/apache2/htdocs
+    command: bash -c "
+      java --version && 
+      cd usr/local/apache2/htdocs/verification_study/libs/prism-4.8/ && 
+      chmod +x install.sh && 
+      ./install.sh &&
+      cd /usr/local/apache2/htdocs/verification_study/ && 
+      java -jar hut.jar 44101"
+    # command: bash -c "
+    #   java --version && 
+    #   cd usr/local/apache2/htdocs/verification_study/libs/prism-4.8/ && 
+    #   chmod +x install.sh && 
+    #   ./install.sh && 
+    #   ls lib && 
+    #   bin/prism && 
+    #   java -jar hut.jar 44101"
+    # command: bash -c "java --version"
+  php:
+    container_name: php
+    build: ./docker/php
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./src:/usr/local/apache2/htdocs
+    working_dir: /usr/local/apache2/htdocs 
+  mysql:
+    image: mysql:8.1.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: '<root-password>'
+      MYSQL_DATABASE: helloworld
+      MYSQL_USER: helloworld
+      MYSQL_PASSWORD: '<db-password>'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database/mysql:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8085:80
+  # db:
+  #   image: mariadb:10.3
+  #   restart: always
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: notSecureChangeMe
+  #     MYSQL_DATABASE: uos-hutsim-cloud-db
+  #     MYSQL_USER: hutsim_web
+  #     MYSQL_PASSWORD: JubyY5!WtV0N
+  #   extra_hosts:
+  #     - "host.docker.internal:host-gateway"
+
+  # phpmyadmin:
+  #   image: phpmyadmin
+  #   restart: always
+  #   ports:
+  #     - 8080:80
+  #   environment:
+  #     - PMA_ARBITRARY=1
+  #     - PMA_HOST=db
+  # ubuntu:
+  #   container_name: ubuntu
+  #   build: ./docker/ubuntu
+  #   volumes:
+  #     - ./src:/usr/local/apache2/htdocs
+  #   command: bash -c "ls && cd htdocs/verification_study/libs/prism-4.8/ && ls && chmod +x install.sh && ./install.sh"
+
+  # jdk:
+  #   container_name: jdk
+  #   build: ./docker/jdk
+  #   ports:
+  #     - 44101:44101
+  #     # - 3002:80
+  #     # - "4096-65535:4096-65535" 
+  #   volumes:
+  #     - ./src:/usr/local/apache2/htdocs
+
+    # command: bash -c "ls && cd usr/local/apache2/htdocs/verification_study/libs/prism-4.8/ && ls && chmod +x install.sh && ./install.sh && bin/prism && java -jar hut.jar 44101"
+    # command: bash -c "ls && cd usr/local/apache2/htdocs/verification_study && ls && java -jar hut.jar 44101"
+    # command: bash -c "uname -r"
+    # command: bash -c "ls && cd usr/local/apache2/htdocs/verification_study/libs/prism-4.8/ && ls && bin/prism && java -jar hut.jar 44101"
+    # command: bash -c "apt-get install -y findutils"
+    
