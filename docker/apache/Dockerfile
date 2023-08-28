@@ -1,10 +1,10 @@
 # docker/apache/Dockerfile
 FROM ubuntu/apache2:2.4-22.04_beta
 
-COPY helloworld.apache.conf /usr/local/apache2/conf/helloworld.apache.conf
+# COPY helloworld.apache.conf /usr/local/apache2/conf/helloworld.apache.conf
 
-RUN echo "Include /usr/local/apache2/conf/helloworld.apache.conf" \
-    >> /usr/local/apache2/conf/httpd.conf
+# RUN echo "Include /usr/local/apache2/conf/helloworld.apache.conf" \
+#     >> /usr/local/apache2/conf/httpd.conf
 
 # RUN apt-get update -y
 # RUN apt-get install -y findutils
@@ -23,3 +23,13 @@ RUN yes | apt-get install oracle-java17-installer oracle-java17-set-default -y
 # RUN echo bin/prism
 # RUN chmod +x install.sh
 # RUN ./install.sh
+
+RUN apt install php libapache2-mod-php php-mysql -y
+
+
+# installing mysql
+# RUN apt install mysql-server
+# RUN mysql
+# RUN echo "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<password>';"
+# RUN echo "exit"
+# RUN apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl -y

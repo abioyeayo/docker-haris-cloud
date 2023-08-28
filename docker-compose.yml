@@ -4,20 +4,23 @@ services:
   apache:
     container_name: apache
     build: ./docker/apache
-    links:
-      - php
+    # links:
+    #   - php
     ports:
       - "80:80"
       - "44101:44101"
     volumes:
-      - ./src:/usr/local/apache2/htdocs
-    command: bash -c "
+      - ./src:/var/www/html/
+    command: bash -c "php -v &&
       java --version && 
-      cd usr/local/apache2/htdocs/verification_study/libs/prism-4.8/ && 
+      cd /var/www/html/verification_study/libs/prism-4.8/ && 
       chmod +x install.sh && 
-      ./install.sh &&
-      cd /usr/local/apache2/htdocs/verification_study/ && 
-      java -jar hut.jar 44101"
+      ./install.sh && 
+      bin/prism && 
+      /usr/sbin/apachectl -D FOREGROUND "
+    # command: bash -c "
+    #   cd /usr/local/apache2/htdocs/verification_study/ && 
+    #   java -jar hut.jar 44101"
     # command: bash -c "
     #   java --version && 
     #   cd usr/local/apache2/htdocs/verification_study/libs/prism-4.8/ && 
@@ -27,14 +30,15 @@ services:
     #   bin/prism && 
     #   java -jar hut.jar 44101"
     # command: bash -c "java --version"
-  php:
-    container_name: php
-    build: ./docker/php
-    ports:
-      - "9000:9000"
-    volumes:
-      - ./src:/usr/local/apache2/htdocs
-    working_dir: /usr/local/apache2/htdocs 
+  # php:
+  #   container_name: php
+  #   build: ./docker/php
+  #   ports:
+  #     - "9000:9000"
+  #   volumes:
+  #     - ./src:/usr/local/apache2/htdocs
+  #   working_dir: /usr/local/apache2/htdocs 
+
   mysql:
     image: mysql:8.1.0
     container_name: mysql
@@ -47,6 +51,7 @@ services:
       - "3306:3306"
     volumes:
       - ./database/mysql:/var/lib/mysql
+    command: mysqld --sql_mode=""
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: pma
@@ -59,6 +64,7 @@ services:
     restart: always
     ports:
       - 8085:80
+
   # db:
   #   image: mariadb:10.3
   #   restart: always

@@ -3,7 +3,7 @@
 # Startup script for PRISM GUI (Linux/Solaris)
 
 # PRISM home directory
-PRISM_DIR="/usr/local/apache2/htdocs/verification_study/libs/prism-4.8"
+PRISM_DIR="/var/www/html/verification_study/libs/prism-4.8"
 
 # Launch using main PRISM script
 PRISM_MAINCLASS=userinterface.GUIPrism
