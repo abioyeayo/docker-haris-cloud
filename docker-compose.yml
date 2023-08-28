@@ -9,7 +9,7 @@ services:
     ports:
       - "80:80"
       - "44101:44101"
-      - "10000:20000"
+      - "10000-10100:10000-10100"
     volumes:
       - ./src:/var/www/html/
     command: bash -c "php -v &&
@@ -18,19 +18,17 @@ services:
       chmod +x install.sh && 
       ./install.sh && 
       bin/prism && 
-      /usr/sbin/apachectl -D FOREGROUND "
-    # command: bash -c "
-    #   cd /usr/local/apache2/htdocs/verification_study/ && 
-    #   java -jar hut.jar 44101"
-    # command: bash -c "
+      chmod -R 777 /var/www/html/verification_study/ &&
+      /usr/sbin/apachectl -D FOREGROUND"
+    # command: bash -c "php -v &&
     #   java --version && 
-    #   cd usr/local/apache2/htdocs/verification_study/libs/prism-4.8/ && 
+    #   cd /var/www/html/verification_study/libs/prism-4.8/ && 
     #   chmod +x install.sh && 
     #   ./install.sh && 
-    #   ls lib && 
     #   bin/prism && 
-    #   java -jar hut.jar 44101"
-    # command: bash -c "java --version"
+    #   /usr/sbin/apachectl -D FOREGROUND &&
+    #   chmod -R 777 var/www/html/verification_study/ &&
+    #   java -jar var/www/html/verification_study/hut.jar 18677"
   # php:
   #   container_name: php
   #   build: ./docker/php
