@@ -731,7 +731,8 @@
                     // echo exec('java --version');
                     // echo "<br><br>";
                     // initially starting from port 1024, but then changed to 4096 (2^12) because mysql connects on 3308
-                    $port = rand(4096, 65535);
+                    //$port = rand(4096, 65535);
+                    $port = rand(10000, 20000);
                     exec('java -jar hut.jar '.$port.'> /dev/null 2>&1 & echo $!', $output);
               
                     // var_dump($output);
@@ -788,7 +789,8 @@
                     // echo exec('java --version');
                     // echo "<br><br>";
                     // initially starting from port 1024, but then changed to 4096 (2^12) because mysql connects on 3308
-                    $port = rand(4096, 65535);
+                    // $port = rand(4096, 65535);
+                    $port = rand(10000, 20000);
                     exec('java -jar hut.jar '.$port.'> /dev/null 2>&1 & echo $!', $output);
               
                     // var_dump($output);
@@ -857,7 +859,8 @@
                     // echo exec('java --version');
                     // echo "<br><br>";
                     // initially starting from port 1024, but then changed to 4096 (2^12) because mysql connects on 3308
-                    $port = rand(4096, 65535);
+                    // $port = rand(4096, 65535);
+                    $port = rand(10000, 20000);
                     exec('java -jar hut.jar '.$port.'> /dev/null 2>&1 & echo $!', $output);
               
                     // var_dump($output);

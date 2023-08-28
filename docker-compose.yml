@@ -9,6 +9,7 @@ services:
     ports:
       - "80:80"
       - "44101:44101"
+      - "10000:20000"
     volumes:
       - ./src:/var/www/html/
     command: bash -c "php -v &&
