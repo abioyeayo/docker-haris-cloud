@@ -33,3 +33,5 @@ RUN apt install php libapache2-mod-php php-mysql -y
 # RUN echo "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<password>';"
 # RUN echo "exit"
 # RUN apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl -y
+
+RUN apt install screen -y

@@ -16,9 +16,41 @@ services:
       java --version && 
       cd /var/www/html/verification_study/libs/prism-4.8/ && 
       chmod +x install.sh && 
-      ./install.sh && 
+      ./install.sh &&
       bin/prism && 
       chmod -R 777 /var/www/html/verification_study/ &&
+      screen --version &&
+      cd /var/www/html/verification_study/ &&
+      screen -S p10001 -d -m java -jar hut.jar 10001 &&
+      screen -S p10002 -d -m java -jar hut.jar 10002 &&
+      screen -S p10003 -d -m java -jar hut.jar 10003 &&
+      screen -S p10004 -d -m java -jar hut.jar 10004 &&
+      screen -S p10005 -d -m java -jar hut.jar 10005 &&
+      screen -S p10006 -d -m java -jar hut.jar 10006 &&
+      screen -S p10007 -d -m java -jar hut.jar 10007 &&
+      screen -S p10008 -d -m java -jar hut.jar 10008 &&
+      screen -S p10009 -d -m java -jar hut.jar 10009 &&
+      screen -S p10010 -d -m java -jar hut.jar 10010 &&
+      screen -S p10011 -d -m java -jar hut.jar 10011 &&
+      screen -S p10012 -d -m java -jar hut.jar 10012 &&
+      screen -S p10013 -d -m java -jar hut.jar 10013 &&
+      screen -S p10014 -d -m java -jar hut.jar 10014 &&
+      screen -S p10015 -d -m java -jar hut.jar 10015 &&
+      screen -S p10016 -d -m java -jar hut.jar 10016 &&
+      screen -S p10017 -d -m java -jar hut.jar 10017 &&
+      screen -S p10018 -d -m java -jar hut.jar 10018 &&
+      screen -S p10019 -d -m java -jar hut.jar 10019 &&
+      screen -S p10020 -d -m java -jar hut.jar 10020 &&
+      screen -S p10021 -d -m java -jar hut.jar 10021 &&
+      screen -S p10022 -d -m java -jar hut.jar 10022 &&
+      screen -S p10023 -d -m java -jar hut.jar 10023 &&
+      screen -S p10024 -d -m java -jar hut.jar 10024 &&
+      screen -S p10025 -d -m java -jar hut.jar 10025 &&
+      screen -S p10026 -d -m java -jar hut.jar 10026 &&
+      screen -S p10027 -d -m java -jar hut.jar 10027 &&
+      screen -S p10028 -d -m java -jar hut.jar 10028 &&
+      screen -S p10029 -d -m java -jar hut.jar 10029 &&
+      screen -S p10030 -d -m java -jar hut.jar 10030 &&
       /usr/sbin/apachectl -D FOREGROUND"
     # command: bash -c "php -v &&
     #   java --version && 

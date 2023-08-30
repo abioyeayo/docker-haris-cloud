@@ -20,9 +20,18 @@
                   // kill all java process
                 //   echo exec("pkill -f 'java -jar hut.jar'");
                   echo exec("pkill -f 'java -jar'");
+                  // echo exec("pkill -f 'SCREEN -S'");
                   echo "All java processes have been terminated.<br><br>";
 
                   $sql = "UPDATE port_table SET `port_status` = 'disconnected', `process_ended` = NOW() WHERE port_status = 'active'";
+                  if(mysqli_query($con1, $sql)){
+                      // echo "Records updated successfully.";
+                  } else{
+                      echo "Error updating record: " . $con->error;
+                      exit();
+                  }
+
+                  $sql = "UPDATE verification_study_port_lookup SET `status` = 'Available' WHERE `status` = 'Busy'";
                   if(mysqli_query($con1, $sql)){
                       // echo "Records updated successfully.";
                   } else{
