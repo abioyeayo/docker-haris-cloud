@@ -51,33 +51,85 @@ services:
       screen -S p10028 -d -m java -jar hut.jar 10028 &&
       screen -S p10029 -d -m java -jar hut.jar 10029 &&
       screen -S p10030 -d -m java -jar hut.jar 10030 &&
+      screen -S p10031 -d -m java -jar hut.jar 10031 &&
+      screen -S p10032 -d -m java -jar hut.jar 10032 &&
+      screen -S p10033 -d -m java -jar hut.jar 10033 &&
+      screen -S p10034 -d -m java -jar hut.jar 10034 &&
+      screen -S p10035 -d -m java -jar hut.jar 10035 &&
+      screen -S p10036 -d -m java -jar hut.jar 10036 &&
+      screen -S p10037 -d -m java -jar hut.jar 10037 &&
+      screen -S p10038 -d -m java -jar hut.jar 10038 &&
+      screen -S p10039 -d -m java -jar hut.jar 10039 &&
+      screen -S p10040 -d -m java -jar hut.jar 10040 &&
+      screen -S p10041 -d -m java -jar hut.jar 10041 &&
+      screen -S p10042 -d -m java -jar hut.jar 10042 &&
+      screen -S p10043 -d -m java -jar hut.jar 10043 &&
+      screen -S p10044 -d -m java -jar hut.jar 10044 &&
+      screen -S p10045 -d -m java -jar hut.jar 10045 &&
+      screen -S p10046 -d -m java -jar hut.jar 10046 &&
+      screen -S p10047 -d -m java -jar hut.jar 10047 &&
+      screen -S p10048 -d -m java -jar hut.jar 10048 &&
+      screen -S p10049 -d -m java -jar hut.jar 10049 &&
+      screen -S p10050 -d -m java -jar hut.jar 10050 &&
+      screen -S p10051 -d -m java -jar hut.jar 10051 &&
+      screen -S p10052 -d -m java -jar hut.jar 10052 &&
+      screen -S p10053 -d -m java -jar hut.jar 10053 &&
+      screen -S p10054 -d -m java -jar hut.jar 10054 &&
+      screen -S p10055 -d -m java -jar hut.jar 10055 &&
+      screen -S p10056 -d -m java -jar hut.jar 10056 &&
+      screen -S p10057 -d -m java -jar hut.jar 10057 &&
+      screen -S p10058 -d -m java -jar hut.jar 10058 &&
+      screen -S p10059 -d -m java -jar hut.jar 10059 &&
+      screen -S p10060 -d -m java -jar hut.jar 10060 &&
+      screen -S p10061 -d -m java -jar hut.jar 10061 &&
+      screen -S p10062 -d -m java -jar hut.jar 10062 &&
+      screen -S p10063 -d -m java -jar hut.jar 10063 &&
+      screen -S p10064 -d -m java -jar hut.jar 10064 &&
+      screen -S p10065 -d -m java -jar hut.jar 10065 &&
+      screen -S p10066 -d -m java -jar hut.jar 10066 &&
+      screen -S p10067 -d -m java -jar hut.jar 10067 &&
+      screen -S p10068 -d -m java -jar hut.jar 10068 &&
+      screen -S p10069 -d -m java -jar hut.jar 10069 &&
+      screen -S p10070 -d -m java -jar hut.jar 10070 &&
+      screen -S p10071 -d -m java -jar hut.jar 10071 &&
+      screen -S p10072 -d -m java -jar hut.jar 10072 &&
+      screen -S p10073 -d -m java -jar hut.jar 10073 &&
+      screen -S p10074 -d -m java -jar hut.jar 10074 &&
+      screen -S p10075 -d -m java -jar hut.jar 10075 &&
+      screen -S p10076 -d -m java -jar hut.jar 10076 &&
+      screen -S p10077 -d -m java -jar hut.jar 10077 &&
+      screen -S p10078 -d -m java -jar hut.jar 10078 &&
+      screen -S p10079 -d -m java -jar hut.jar 10079 &&
+      screen -S p10080 -d -m java -jar hut.jar 10080 &&
+      screen -S p10081 -d -m java -jar hut.jar 10081 &&
+      screen -S p10082 -d -m java -jar hut.jar 10082 &&
+      screen -S p10083 -d -m java -jar hut.jar 10083 &&
+      screen -S p10084 -d -m java -jar hut.jar 10084 &&
+      screen -S p10085 -d -m java -jar hut.jar 10085 &&
+      screen -S p10086 -d -m java -jar hut.jar 10086 &&
+      screen -S p10087 -d -m java -jar hut.jar 10087 &&
+      screen -S p10088 -d -m java -jar hut.jar 10088 &&
+      screen -S p10089 -d -m java -jar hut.jar 10089 &&
+      screen -S p10090 -d -m java -jar hut.jar 10090 &&
+      screen -S p10091 -d -m java -jar hut.jar 10091 &&
+      screen -S p10092 -d -m java -jar hut.jar 10092 &&
+      screen -S p10093 -d -m java -jar hut.jar 10093 &&
+      screen -S p10094 -d -m java -jar hut.jar 10094 &&
+      screen -S p10095 -d -m java -jar hut.jar 10095 &&
+      screen -S p10096 -d -m java -jar hut.jar 10096 &&
+      screen -S p10097 -d -m java -jar hut.jar 10097 &&
+      screen -S p10098 -d -m java -jar hut.jar 10098 &&
+      screen -S p10099 -d -m java -jar hut.jar 10099 &&
+      screen -S p10100 -d -m java -jar hut.jar 10100 &&
       /usr/sbin/apachectl -D FOREGROUND"
-    # command: bash -c "php -v &&
-    #   java --version && 
-    #   cd /var/www/html/verification_study/libs/prism-4.8/ && 
-    #   chmod +x install.sh && 
-    #   ./install.sh && 
-    #   bin/prism && 
-    #   /usr/sbin/apachectl -D FOREGROUND &&
-    #   chmod -R 777 var/www/html/verification_study/ &&
-    #   java -jar var/www/html/verification_study/hut.jar 18677"
-  # php:
-  #   container_name: php
-  #   build: ./docker/php
-  #   ports:
-  #     - "9000:9000"
-  #   volumes:
-  #     - ./src:/usr/local/apache2/htdocs
-  #   working_dir: /usr/local/apache2/htdocs 
-
   mysql:
     image: mysql:8.1.0
     container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: '<root-password>'
-      MYSQL_DATABASE: helloworld
-      MYSQL_USER: helloworld
-      MYSQL_PASSWORD: '<db-password>'
+      MYSQL_DATABASE: uos-hutsim-cloud-db
+      MYSQL_USER: hutsim_web
+      MYSQL_PASSWORD: 'JubyY5!WtV0N'
     ports:
       - "3306:3306"
     volumes:
@@ -95,46 +147,3 @@ services:
     restart: always
     ports:
       - 8085:80
-
-  # db:
-  #   image: mariadb:10.3
-  #   restart: always
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: notSecureChangeMe
-  #     MYSQL_DATABASE: uos-hutsim-cloud-db
-  #     MYSQL_USER: hutsim_web
-  #     MYSQL_PASSWORD: JubyY5!WtV0N
-  #   extra_hosts:
-  #     - "host.docker.internal:host-gateway"
-
-  # phpmyadmin:
-  #   image: phpmyadmin
-  #   restart: always
-  #   ports:
-  #     - 8080:80
-  #   environment:
-  #     - PMA_ARBITRARY=1
-  #     - PMA_HOST=db
-  # ubuntu:
-  #   container_name: ubuntu
-  #   build: ./docker/ubuntu
-  #   volumes:
-  #     - ./src:/usr/local/apache2/htdocs
-  #   command: bash -c "ls && cd htdocs/verification_study/libs/prism-4.8/ && ls && chmod +x install.sh && ./install.sh"
-
-  # jdk:
-  #   container_name: jdk
-  #   build: ./docker/jdk
-  #   ports:
-  #     - 44101:44101
-  #     # - 3002:80
-  #     # - "4096-65535:4096-65535" 
-  #   volumes:
-  #     - ./src:/usr/local/apache2/htdocs
-
-    # command: bash -c "ls && cd usr/local/apache2/htdocs/verification_study/libs/prism-4.8/ && ls && chmod +x install.sh && ./install.sh && bin/prism && java -jar hut.jar 44101"
-    # command: bash -c "ls && cd usr/local/apache2/htdocs/verification_study && ls && java -jar hut.jar 44101"
-    # command: bash -c "uname -r"
-    # command: bash -c "ls && cd usr/local/apache2/htdocs/verification_study/libs/prism-4.8/ && ls && bin/prism && java -jar hut.jar 44101"
-    # command: bash -c "apt-get install -y findutils"
-    

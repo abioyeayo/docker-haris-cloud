@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 24, 2023 at 07:41 AM
+-- Generation Time: Aug 30, 2023 at 04:08 PM
 -- Server version: 5.7.42-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-0ubuntu0.18.04.17
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `helloworld`
+-- Database: `uos-hutsim-cloud-db`
 --
 
 -- --------------------------------------------------------
@@ -2481,7 +2481,28 @@ INSERT INTO `port_table` (`id`, `process_id`, `process_info`, `port_number`, `po
 (2079, 24009, '639c81275bd768dce603c9c5', 12148, 'disconnected', '2023-08-23 16:52:08', 'uos-web-user', '2023-08-23 16:37:23'),
 (2080, 24671, '639c81275bd768dce603c9c5', 54986, 'disconnected', '2023-08-23 16:52:07', 'uos-web-user', '2023-08-23 16:51:28'),
 (2081, 24674, '639c81275bd768dce603c9c5', 38749, 'disconnected', '2023-08-23 16:52:09', 'uos-web-user', '2023-08-23 16:51:28'),
-(2082, 24682, '639c81275bd768dce603c9c5', 32896, 'disconnected', '2023-08-23 16:52:09', 'uos-web-user', '2023-08-23 16:51:28');
+(2082, 24682, '639c81275bd768dce603c9c5', 32896, 'disconnected', '2023-08-23 16:52:09', 'uos-web-user', '2023-08-23 16:51:28'),
+(2083, 24797, '', 52597, 'active', NULL, 'uos-web-user', '2023-08-24 12:04:08'),
+(2084, 24799, '', 15032, 'active', NULL, 'uos-web-user', '2023-08-24 12:04:08'),
+(2085, 24803, '', 12788, 'active', NULL, 'uos-web-user', '2023-08-24 12:04:08'),
+(2086, 25058, '', 34943, 'active', NULL, 'uos-web-user', '2023-08-24 12:09:41'),
+(2087, 25060, '', 8373, 'active', NULL, 'uos-web-user', '2023-08-24 12:09:41'),
+(2088, 25067, '', 35149, 'active', NULL, 'uos-web-user', '2023-08-24 12:09:41'),
+(2089, 19811, '639c81275bd768dce603c9c5', 65534, 'active', NULL, 'uos-web-user', '2023-08-25 04:01:01'),
+(2090, 19814, '639c81275bd768dce603c9c5', 55432, 'active', NULL, 'uos-web-user', '2023-08-25 04:01:01'),
+(2091, 19823, '639c81275bd768dce603c9c5', 14621, 'active', NULL, 'uos-web-user', '2023-08-25 04:01:01'),
+(2092, 3550, '', 58815, 'active', NULL, 'uos-web-user', '2023-08-25 12:58:26'),
+(2093, 3553, '', 27159, 'active', NULL, 'uos-web-user', '2023-08-25 12:58:26'),
+(2094, 3561, '', 12381, 'active', NULL, 'uos-web-user', '2023-08-25 12:58:26'),
+(2095, 3768, '', 20472, 'active', NULL, 'uos-web-user', '2023-08-25 13:03:36'),
+(2096, 3771, '', 54524, 'active', NULL, 'uos-web-user', '2023-08-25 13:03:36'),
+(2097, 3779, '', 12058, 'active', NULL, 'uos-web-user', '2023-08-25 13:03:36'),
+(2098, 10624, '639c81275bd768dce603c9c5', 47725, 'active', NULL, 'uos-web-user', '2023-08-28 20:43:36'),
+(2099, 10626, '639c81275bd768dce603c9c5', 60714, 'active', NULL, 'uos-web-user', '2023-08-28 20:43:36'),
+(2100, 10630, '639c81275bd768dce603c9c5', 19093, 'active', NULL, 'uos-web-user', '2023-08-28 20:43:36'),
+(2101, 13270, '639c81275bd768dce603c9c5', 32316, 'active', NULL, 'uos-web-user', '2023-08-30 12:58:58'),
+(2102, 13273, '639c81275bd768dce603c9c5', 13422, 'active', NULL, 'uos-web-user', '2023-08-30 12:58:58'),
+(2103, 13276, '639c81275bd768dce603c9c5', 36804, 'active', NULL, 'uos-web-user', '2023-08-30 12:58:58');
 
 -- --------------------------------------------------------
 
@@ -2793,6 +2814,125 @@ INSERT INTO `verification_study_data_table` (`id`, `prolific_pid`, `study_id`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `verification_study_port_table`
+--
+
+CREATE TABLE `verification_study_port_table` (
+  `id` int(11) NOT NULL,
+  `port` int(11) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `date_added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `verification_study_port_table`
+--
+
+INSERT INTO `verification_study_port_table` (`id`, `port`, `status`, `date_added`) VALUES
+(1, 10001, 'Available', '2023-08-30 16:07:39'),
+(2, 10002, 'Available', '2023-08-30 16:07:39'),
+(3, 10003, 'Available', '2023-08-30 16:07:39'),
+(4, 10004, 'Available', '2023-08-30 16:07:39'),
+(5, 10005, 'Available', '2023-08-30 16:07:39'),
+(6, 10006, 'Available', '2023-08-30 16:07:39'),
+(7, 10007, 'Available', '2023-08-30 16:07:39'),
+(8, 10008, 'Available', '2023-08-30 16:07:39'),
+(9, 10009, 'Available', '2023-08-30 16:07:39'),
+(10, 10010, 'Available', '2023-08-30 16:07:39'),
+(11, 10011, 'Available', '2023-08-30 16:07:39'),
+(12, 10012, 'Available', '2023-08-30 16:07:39'),
+(13, 10013, 'Available', '2023-08-30 16:07:39'),
+(14, 10014, 'Available', '2023-08-30 16:07:39'),
+(15, 10015, 'Available', '2023-08-30 16:07:39'),
+(16, 10016, 'Available', '2023-08-30 16:07:39'),
+(17, 10017, 'Available', '2023-08-30 16:07:39'),
+(18, 10018, 'Available', '2023-08-30 16:07:39'),
+(19, 10019, 'Available', '2023-08-30 16:07:39'),
+(20, 10020, 'Available', '2023-08-30 16:07:39'),
+(21, 10021, 'Available', '2023-08-30 16:07:39'),
+(22, 10022, 'Available', '2023-08-30 16:07:39'),
+(23, 10023, 'Available', '2023-08-30 16:07:39'),
+(24, 10024, 'Available', '2023-08-30 16:07:39'),
+(25, 10025, 'Available', '2023-08-30 16:07:39'),
+(26, 10026, 'Available', '2023-08-30 16:07:39'),
+(27, 10027, 'Available', '2023-08-30 16:07:39'),
+(28, 10028, 'Available', '2023-08-30 16:07:39'),
+(29, 10029, 'Available', '2023-08-30 16:07:39'),
+(30, 10030, 'Available', '2023-08-30 16:07:39'),
+(31, 10031, 'Available', '2023-08-30 16:07:39'),
+(32, 10032, 'Available', '2023-08-30 16:07:39'),
+(33, 10033, 'Available', '2023-08-30 16:07:39'),
+(34, 10034, 'Available', '2023-08-30 16:07:39'),
+(35, 10035, 'Available', '2023-08-30 16:07:39'),
+(36, 10036, 'Available', '2023-08-30 16:07:39'),
+(37, 10037, 'Available', '2023-08-30 16:07:39'),
+(38, 10038, 'Available', '2023-08-30 16:07:39'),
+(39, 10039, 'Available', '2023-08-30 16:07:39'),
+(40, 10040, 'Available', '2023-08-30 16:07:39'),
+(41, 10041, 'Available', '2023-08-30 16:07:39'),
+(42, 10042, 'Available', '2023-08-30 16:07:39'),
+(43, 10043, 'Available', '2023-08-30 16:07:39'),
+(44, 10044, 'Available', '2023-08-30 16:07:39'),
+(45, 10045, 'Available', '2023-08-30 16:07:39'),
+(46, 10046, 'Available', '2023-08-30 16:07:39'),
+(47, 10047, 'Available', '2023-08-30 16:07:39'),
+(48, 10048, 'Available', '2023-08-30 16:07:39'),
+(49, 10049, 'Available', '2023-08-30 16:07:39'),
+(50, 10050, 'Available', '2023-08-30 16:07:39'),
+(51, 10051, 'Available', '2023-08-30 16:07:39'),
+(52, 10052, 'Available', '2023-08-30 16:07:39'),
+(53, 10053, 'Available', '2023-08-30 16:07:39'),
+(54, 10054, 'Available', '2023-08-30 16:07:39'),
+(55, 10055, 'Available', '2023-08-30 16:07:39'),
+(56, 10056, 'Available', '2023-08-30 16:07:39'),
+(57, 10057, 'Available', '2023-08-30 16:07:39'),
+(58, 10058, 'Available', '2023-08-30 16:07:39'),
+(59, 10059, 'Available', '2023-08-30 16:07:39'),
+(60, 10060, 'Available', '2023-08-30 16:07:39'),
+(61, 10061, 'Available', '2023-08-30 16:07:39'),
+(62, 10062, 'Available', '2023-08-30 16:07:39'),
+(63, 10063, 'Available', '2023-08-30 16:07:39'),
+(64, 10064, 'Available', '2023-08-30 16:07:39'),
+(65, 10065, 'Available', '2023-08-30 16:07:39'),
+(66, 10066, 'Available', '2023-08-30 16:07:39'),
+(67, 10067, 'Available', '2023-08-30 16:07:39'),
+(68, 10068, 'Available', '2023-08-30 16:07:39'),
+(69, 10069, 'Available', '2023-08-30 16:07:39'),
+(70, 10070, 'Available', '2023-08-30 16:07:39'),
+(71, 10071, 'Available', '2023-08-30 16:07:39'),
+(72, 10072, 'Available', '2023-08-30 16:07:39'),
+(73, 10073, 'Available', '2023-08-30 16:07:39'),
+(74, 10074, 'Available', '2023-08-30 16:07:39'),
+(75, 10075, 'Available', '2023-08-30 16:07:39'),
+(76, 10076, 'Available', '2023-08-30 16:07:39'),
+(77, 10077, 'Available', '2023-08-30 16:07:39'),
+(78, 10078, 'Available', '2023-08-30 16:07:39'),
+(79, 10079, 'Available', '2023-08-30 16:07:39'),
+(80, 10080, 'Available', '2023-08-30 16:07:39'),
+(81, 10081, 'Available', '2023-08-30 16:07:39'),
+(82, 10082, 'Available', '2023-08-30 16:07:39'),
+(83, 10083, 'Available', '2023-08-30 16:07:39'),
+(84, 10084, 'Available', '2023-08-30 16:07:39'),
+(85, 10085, 'Available', '2023-08-30 16:07:39'),
+(86, 10086, 'Available', '2023-08-30 16:07:39'),
+(87, 10087, 'Available', '2023-08-30 16:07:39'),
+(88, 10088, 'Available', '2023-08-30 16:07:39'),
+(89, 10089, 'Available', '2023-08-30 16:07:39'),
+(90, 10090, 'Available', '2023-08-30 16:07:39'),
+(91, 10091, 'Available', '2023-08-30 16:07:39'),
+(92, 10092, 'Available', '2023-08-30 16:07:39'),
+(93, 10093, 'Available', '2023-08-30 16:07:39'),
+(94, 10094, 'Available', '2023-08-30 16:07:39'),
+(95, 10095, 'Available', '2023-08-30 16:07:39'),
+(96, 10096, 'Available', '2023-08-30 16:07:39'),
+(97, 10097, 'Available', '2023-08-30 16:07:39'),
+(98, 10098, 'Available', '2023-08-30 16:07:39'),
+(99, 10099, 'Available', '2023-08-30 16:07:39'),
+(100, 10100, 'Available', '2023-08-30 16:07:39');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `wsga_lkxr_data_table`
 --
 
@@ -2898,6 +3038,12 @@ ALTER TABLE `verification_study_data_table`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `verification_study_port_table`
+--
+ALTER TABLE `verification_study_port_table`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `wsga_lkxr_data_table`
 --
 ALTER TABLE `wsga_lkxr_data_table`
@@ -2926,7 +3072,7 @@ ALTER TABLE `placebo_study_data_table`
 -- AUTO_INCREMENT for table `port_table`
 --
 ALTER TABLE `port_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2083;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2104;
 --
 -- AUTO_INCREMENT for table `res_study_data_table`
 --
@@ -2937,6 +3083,11 @@ ALTER TABLE `res_study_data_table`
 --
 ALTER TABLE `verification_study_data_table`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `verification_study_port_table`
+--
+ALTER TABLE `verification_study_port_table`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 --
 -- AUTO_INCREMENT for table `wsga_lkxr_data_table`
 --
