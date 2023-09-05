@@ -147,3 +147,28 @@ services:
     restart: always
     ports:
       - 8085:80
+  # apache:
+  #   container_name: apache
+  #   build: ./docker/apache
+  #   # links:
+  #   #   - php
+  #   ports:
+  #     - "80:80"
+  #     - '443:443'
+  #     - "44101:44101"
+  #     - "10000-10100:10000-10100"
+  #   environment:
+  #     DOMAINS: 'uos-haris.online'
+  #     EMAIL: 'admin@uos-haris.online'
+  #     PAGESPEED: 'true'
+  #     LIBMOD: 're2c'
+  #     APAMOD: 'cache,rewrite,ssl,headers'
+  #     APDMOD: 'autoindex'
+  #     PHPMOD: 'bcmath,bz2,intl,gd,mbstring,mysql,zip'
+  #     PEAMOD: 'xdiff'
+  #   volumes:
+  #     - ./letsencrypt:/etc/letsencrypt/
+  #     - ./src:/var/www/html/
+  #   command: bash -c "certbot certonly --non-interactive --agree-tos --no-eff-email --no-redirect --email 'user@uos-haris.online' --domains '*.uos-haris.online' --dry-run &&
+  #     /usr/sbin/apachectl -D FOREGROUND"
+  #     # certbot --apache --non-interactive --agree-tos --email $EMAIL --domains $DOMAINS certonly --dry-run &&
