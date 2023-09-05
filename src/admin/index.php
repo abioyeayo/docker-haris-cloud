@@ -82,7 +82,7 @@
                                 <td>".$row["process_id"]."</td>
                                 <td>".$row["process_info"]."</td>
                                 <td>".$row["port_number"]."</td>
-                                <td><a href='http://uos-hutsim.cloud:".$row["port_number"]."/' target='_blank'><button type='button' class='btn btn-outline-secondary btn-sm'>View Simulation</button></a></td>
+                                <td><a href='http://uos-haris.online:".$row["port_number"]."/' target='_blank'><button type='button' class='btn btn-outline-secondary btn-sm'>View Simulation</button></a></td>
                                 <td><button type='submit' name='btn_stop_pid' value='".$row["process_id"]."' class='btn btn-outline-dark btn-sm'>Stop Process</button></td>
                               </tr>";
                       }
