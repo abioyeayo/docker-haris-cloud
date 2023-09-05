@@ -37,3 +37,5 @@ RUN apt install php libapache2-mod-php php-mysql -y
 RUN apt install screen -y
 
 # RUN apt install certbot python3-certbot-apache -y
+
+RUN apt install zip unzip -y
