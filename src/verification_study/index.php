@@ -6,6 +6,7 @@
    // test url: https://uos-hutsim.cloud/verification_study/?PROLIFIC_PID=639c81275bd768dce603c9c5&STUDY_ID=63b4a06fa62e8101c635f299&SESSION_ID=0z2rngztewk&GROUP_ID=vg5est5j
    // test url: https://uos-hutsim.cloud/verification_study/?PROLIFIC_PID=639c81275bd768dce603c9c5&STUDY_ID=64e634cd7bd7c0f0f1545fc5&SESSION_ID=0wyukhwfhh58&GROUP_ID=vg5est5j
    // pilot study url: http://localhost/verification_study/?PROLIFIC_PID=639c81275bd768dce603c9c5aoa&STUDY_ID=63b4a06fa62e8101c635f299aoa&SESSION_ID=pilot_study&GROUP_ID=vg5est5j
+   // prolific study url: http://uos-haris.online/verification_study/?PROLIFIC_PID=639c81275bd768dce603c9c5&STUDY_ID=64f77d0a2a7ace39d289a5c8&SESSION_ID=0ctybs7pe9yv&GROUP_ID=vg5est5j
 
    // connecting to database
    $con = new DB_Connect();
@@ -128,6 +129,7 @@
         $radio_pcpt_p2 = $_POST['radio_pcpt_p2'];
         $radio_pcpt_p3 = $_POST['radio_pcpt_p3'];
         $radio_pcpt_p4 = $_POST['radio_pcpt_p4'];
+        $txt_pcpt_p5 = mysqli_real_escape_string($con1, $_POST['txt_pcpt_p5']);
 
         // study wsga questionnaires
         $md = $_POST['radio_wsga_md'];
@@ -169,6 +171,7 @@
         $j11 = $_POST['radio_wsga_j11'];
         $j12 = $_POST['radio_wsga_j12'];
         $j13 = $_POST['radio_wsga_j13'];
+        $e1 = $_POST['radio_wsga_e1'];
 
         // convert numbers to text demographic information
         switch ($radio_pcpt_f1) {
@@ -376,11 +379,20 @@
         $pcpt_p3 = mysqli_real_escape_string($con1, $radio_pcpt_p3);
         $pcpt_p4 = mysqli_real_escape_string($con1, $radio_pcpt_p4);
 
+        // fetch multi option data from custom questionnaire
+        $pcpt_p2m = "";
+        if(!empty($_POST['checkbox_pcpt_p2'])){
+          foreach($_POST['checkbox_pcpt_p2'] as $checked){
+            $pcpt_p2m = $pcpt_p2m . $checked ."; ";
+          }
+        }
+        $pcpt_p2m = mysqli_real_escape_string($con1, $pcpt_p2m);
+
 
         // update data table for scenario 1
         // $study_scenario = substr($study_alias,0,4);
         $study_scenario = $scenario_1;
-        $sql = "INSERT INTO verification_study_data_table (prolific_pid, study_id, `session_id`, study_title, study_alias, study_scenario, study_start_time, study_end_time, briefing_attn_chk1, briefing_attn_chk2, briefing_attn_chk3, pcpt_c1, pcpt_c2, pcpt_c3, pcpt_f1, pcpt_f2, pcpt_f3, pcpt_f4, pcpt_f5, md, pd, td, pf, ef, fr, u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, j1, j2, j3, j4, j5, j6, j7, j8, j9, j10, j11, j12, j13, pcpt_p1, pcpt_p2, pcpt_p3, pcpt_p4) VALUES ('" . $prolific_pid . "', '" . $study_id . "', '" . $session_id . "', '" . $study_title . "', '" . $study_alias . "', '" . $study_scenario . "', '" . $study_start_time . "', '" . $study_end_time . "', '" . $briefing_attn_chk1 . "', '" . $briefing_attn_chk2 . "', '" . $briefing_attn_chk3 . "', '" . $pcpt_c1 . "', '" . $pcpt_c2 . "', '" . $pcpt_c3 . "', '" . $pcpt_f1 . "', '" . $pcpt_f2 . "', '" . $pcpt_f3 . "', '" . $pcpt_f4 . "', '" . $pcpt_f5 . "', '" . $md . "', '" . $pd . "', '" . $td . "', '" . $pf . "', '" . $ef . "', '" . $fr . "', '" . $u1 . "', '" . $u2 . "', '" . $u3 . "', '" . $u4 . "', '" . $u5 . "', '" . $u6 . "', '" . $u7 . "', '" . $u8 . "', '" . $u9 . "', '" . $u10 . "', '" . $a1 . "', '" . $a2 . "', '" . $a3 . "', '" . $a4 . "', '" . $a5 . "', '" . $a6 . "', '" . $a7 . "', '" . $a8 . "', '" . $a9 . "', '" . $a10 . "', '" .$j1 . "', '" . $j2 . "', '" . $j3 . "', '" . $j4 . "', '" . $j5 . "', '" . $j6 . "', '" . $j7 . "', '" . $j8 . "', '" . $j9 . "', '" . $j10 . "', '" . $j11 . "', '" . $j12 . "', '" . $j13 . "', '" .  $pcpt_p1 . "', '" . $pcpt_p2 . "', '" . $pcpt_p3 . "', '" . $pcpt_p4 . "')";
+        $sql = "INSERT INTO verification_study_data_table (prolific_pid, study_id, `session_id`, study_title, study_alias, study_scenario, study_start_time, study_end_time, briefing_attn_chk1, briefing_attn_chk2, briefing_attn_chk3, pcpt_c1, pcpt_c2, pcpt_c3, pcpt_f1, pcpt_f2, pcpt_f3, pcpt_f4, pcpt_f5, md, pd, td, pf, ef, fr, u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, j1, j2, j3, j4, j5, j6, j7, j8, j9, j10, j11, j12, j13, e1, pcpt_p1, pcpt_p2, pcpt_p2m, pcpt_p3, pcpt_p4, txt_pcpt_p5) VALUES ('" . $prolific_pid . "', '" . $study_id . "', '" . $session_id . "', '" . $study_title . "', '" . $study_alias . "', '" . $study_scenario . "', '" . $study_start_time . "', '" . $study_end_time . "', '" . $briefing_attn_chk1 . "', '" . $briefing_attn_chk2 . "', '" . $briefing_attn_chk3 . "', '" . $pcpt_c1 . "', '" . $pcpt_c2 . "', '" . $pcpt_c3 . "', '" . $pcpt_f1 . "', '" . $pcpt_f2 . "', '" . $pcpt_f3 . "', '" . $pcpt_f4 . "', '" . $pcpt_f5 . "', '" . $md . "', '" . $pd . "', '" . $td . "', '" . $pf . "', '" . $ef . "', '" . $fr . "', '" . $u1 . "', '" . $u2 . "', '" . $u3 . "', '" . $u4 . "', '" . $u5 . "', '" . $u6 . "', '" . $u7 . "', '" . $u8 . "', '" . $u9 . "', '" . $u10 . "', '" . $a1 . "', '" . $a2 . "', '" . $a3 . "', '" . $a4 . "', '" . $a5 . "', '" . $a6 . "', '" . $a7 . "', '" . $a8 . "', '" . $a9 . "', '" . $a10 . "', '" .$j1 . "', '" . $j2 . "', '" . $j3 . "', '" . $j4 . "', '" . $j5 . "', '" . $j6 . "', '" . $j7 . "', '" . $j8 . "', '" . $j9 . "', '" . $j10 . "', '" . $j11 . "', '" . $j12 . "', '" . $j13 . "', '" .  $e1 . "', '" .  $pcpt_p1 . "', '" . $pcpt_p2 . "', '" . $pcpt_p2m . "', '" . $pcpt_p3 . "', '" . $pcpt_p4 . "', '" . $txt_pcpt_p5 . "')";
         if(mysqli_query($con1, $sql)){
             // echo "Records inserted successfully.";
         } else{
@@ -429,10 +441,11 @@
         $j11 = $_POST['radio_lkxr_j11'];
         $j12 = $_POST['radio_lkxr_j12'];
         $j13 = $_POST['radio_lkxr_j13'];
+        $e1 = $_POST['radio_lkxr_e1'];
 
         // update data table for scenario 2
         $study_scenario = $scenario_2;
-        $sql = "INSERT INTO verification_study_data_table (prolific_pid, study_id, `session_id`, study_title, study_alias, study_scenario, study_start_time, study_end_time, briefing_attn_chk1, briefing_attn_chk2, briefing_attn_chk3, pcpt_c1, pcpt_c2, pcpt_c3, pcpt_f1, pcpt_f2, pcpt_f3, pcpt_f4, pcpt_f5, md, pd, td, pf, ef, fr, u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, j1, j2, j3, j4, j5, j6, j7, j8, j9, j10, j11, j12, j13, pcpt_p1, pcpt_p2, pcpt_p3, pcpt_p4) VALUES ('" . $prolific_pid . "', '" . $study_id . "', '" . $session_id . "', '" . $study_title . "', '" . $study_alias . "', '" . $study_scenario . "', '" . $study_start_time . "', '" . $study_end_time . "', '" . $briefing_attn_chk1 . "', '" . $briefing_attn_chk2 . "', '" . $briefing_attn_chk3 . "', '" . $pcpt_c1 . "', '" . $pcpt_c2 . "', '" . $pcpt_c3 . "', '" . $pcpt_f1 . "', '" . $pcpt_f2 . "', '" . $pcpt_f3 . "', '" . $pcpt_f4 . "', '" . $pcpt_f5 . "', '" . $md . "', '" . $pd . "', '" . $td . "', '" . $pf . "', '" . $ef . "', '" . $fr . "', '" . $u1 . "', '" . $u2 . "', '" . $u3 . "', '" . $u4 . "', '" . $u5 . "', '" . $u6 . "', '" . $u7 . "', '" . $u8 . "', '" . $u9 . "', '" . $u10 . "', '" . $a1 . "', '" . $a2 . "', '" . $a3 . "', '" . $a4 . "', '" . $a5 . "', '" . $a6 . "', '" . $a7 . "', '" . $a8 . "', '" . $a9 . "', '" . $a10 . "', '" .$j1 . "', '" . $j2 . "', '" . $j3 . "', '" . $j4 . "', '" . $j5 . "', '" . $j6 . "', '" . $j7 . "', '" . $j8 . "', '" . $j9 . "', '" . $j10 . "', '" . $j11 . "', '" . $j12 . "', '" . $j13 . "', '" .  $pcpt_p1 . "', '" . $pcpt_p2 . "', '" . $pcpt_p3 . "', '" . $pcpt_p4 . "')";
+        $sql = "INSERT INTO verification_study_data_table (prolific_pid, study_id, `session_id`, study_title, study_alias, study_scenario, study_start_time, study_end_time, briefing_attn_chk1, briefing_attn_chk2, briefing_attn_chk3, pcpt_c1, pcpt_c2, pcpt_c3, pcpt_f1, pcpt_f2, pcpt_f3, pcpt_f4, pcpt_f5, md, pd, td, pf, ef, fr, u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, j1, j2, j3, j4, j5, j6, j7, j8, j9, j10, j11, j12, j13, e1, pcpt_p1, pcpt_p2, pcpt_p2m, pcpt_p3, pcpt_p4, txt_pcpt_p5) VALUES ('" . $prolific_pid . "', '" . $study_id . "', '" . $session_id . "', '" . $study_title . "', '" . $study_alias . "', '" . $study_scenario . "', '" . $study_start_time . "', '" . $study_end_time . "', '" . $briefing_attn_chk1 . "', '" . $briefing_attn_chk2 . "', '" . $briefing_attn_chk3 . "', '" . $pcpt_c1 . "', '" . $pcpt_c2 . "', '" . $pcpt_c3 . "', '" . $pcpt_f1 . "', '" . $pcpt_f2 . "', '" . $pcpt_f3 . "', '" . $pcpt_f4 . "', '" . $pcpt_f5 . "', '" . $md . "', '" . $pd . "', '" . $td . "', '" . $pf . "', '" . $ef . "', '" . $fr . "', '" . $u1 . "', '" . $u2 . "', '" . $u3 . "', '" . $u4 . "', '" . $u5 . "', '" . $u6 . "', '" . $u7 . "', '" . $u8 . "', '" . $u9 . "', '" . $u10 . "', '" . $a1 . "', '" . $a2 . "', '" . $a3 . "', '" . $a4 . "', '" . $a5 . "', '" . $a6 . "', '" . $a7 . "', '" . $a8 . "', '" . $a9 . "', '" . $a10 . "', '" .$j1 . "', '" . $j2 . "', '" . $j3 . "', '" . $j4 . "', '" . $j5 . "', '" . $j6 . "', '" . $j7 . "', '" . $j8 . "', '" . $j9 . "', '" . $j10 . "', '" . $j11 . "', '" . $j12 . "', '" . $j13 . "', '" .  $e1 . "', '" .  $pcpt_p1 . "', '" . $pcpt_p2 . "', '" . $pcpt_p2m . "', '" . $pcpt_p3 . "', '" . $pcpt_p4 . "', '" . $txt_pcpt_p5 . "')";
         if(mysqli_query($con1, $sql)){
             // echo "Records inserted successfully.";
         } else{
@@ -441,8 +454,8 @@
         }
 
 
-        // halt study submission
-        exit("<div style='text-align: center; margin-top: 40px;'><h2>Your submission was successful!</h2>We have received your submission. Thank you for taking part in our pilot study.</div>");
+        // // halt study submission
+        // exit("<div style='text-align: center; margin-top: 40px;'><h2>Your submission was successful!</h2>We have received your submission. Thank you for taking part in our pilot study.</div>");
 
         // redirect back to prolific website to confirm study completion
         // header("Location: https://app.prolific.co/submissions/complete?cc=C1FIC4D9"); // ayo's prolific redirect
@@ -892,6 +905,10 @@
               <?php 
                 $scenario_abbr = "wsga";
                 include 'contents/questionnaire.php'; 
+
+                if ($scenario_1 != "SNV"){
+                  include 'contents/feature-index.php'; 
+                }
               ?>
               
           </div>
@@ -966,6 +983,12 @@
               <?php 
                 $scenario_abbr = "lkxr";
                 include 'contents/questionnaire.php'; 
+
+                if ($scenario_2 != "SNV"){
+                  include 'contents/feature-index.php'; 
+                }
+
+                
               ?>
 
           </div>
