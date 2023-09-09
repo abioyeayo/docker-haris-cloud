@@ -172,3 +172,4 @@ services:
   #   command: bash -c "certbot certonly --non-interactive --agree-tos --no-eff-email --no-redirect --email 'user@uos-haris.online' --domains '*.uos-haris.online' --dry-run &&
   #     /usr/sbin/apachectl -D FOREGROUND"
   #     # certbot --apache --non-interactive --agree-tos --email $EMAIL --domains $DOMAINS certonly --dry-run &&
+  # certbot certonly --standalone -d uos-haris.online -d www.uos-haris.online -m webmaster@uos-haris.online --agree-tos --non-interactive
